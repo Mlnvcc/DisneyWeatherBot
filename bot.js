@@ -41,7 +41,7 @@ bot.on("text", async (ctx) => {
   const response = await fetch("https://api.disneyapi.dev/characters");
   const data = await response.json();
   const random = Math.floor(Math.random() * data.data.length);
-  counter++;
+  // counter++;
 
   weather.find(
     { search: `${ctx.message.text}`, degreeType: "C" },
@@ -50,12 +50,12 @@ bot.on("text", async (ctx) => {
         ctx.reply(
           `Weather in ${ctx.message.text} today 🕵🌏:\n${result[0].current.skytext} ${result[0].current.temperature} °C ( feels like ${result[0].current.feelslike} °C)\n\nTomorrow 🔮:\n${result[0].forecast[2].skytextday} ${result[0].forecast[2].low} °C\n\n\nDisney pic for you 🧚‍♀️✨:\n\n${data.data[random].name}\n${data.data[random].imageUrl}`
         );
-        if (counter === 2) {
-          counter = 0;
-          ctx.reply(
-            "To get information in Russian follow @AnotherLangBot\n\nChoose a movie according to the weather\n@MoviesChoiceBot\n\nIf you forgot the name of the song\n@msc_finder_bot"
-          );
-        }
+        // if (counter === 2) {
+        //   counter = 0;
+        //   ctx.reply(
+        //     "To get information in Russian follow @AnotherLangBot\n\nChoose a movie according to the weather\n@MoviesChoiceBot\n\nIf you forgot the name of the song\n@msc_finder_bot"
+        //   );
+        // }
       } catch (e) {
         ctx.reply(
           `${"https://cs11.pikabu.ru/post_img/2020/05/11/11/1589224804142471795.jpg"}\n\n\nTo get instructions enter /help`
